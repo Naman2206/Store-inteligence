@@ -1,0 +1,7 @@
+# Serves pre-built dashboard assets (build locally: cd dashboard && npm run build)
+FROM node:20-alpine
+WORKDIR /app
+RUN npm install -g serve
+COPY dashboard/dist ./dist
+EXPOSE 3000
+CMD ["serve", "-s", "dist", "-l", "3000"]

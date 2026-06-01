@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./events:/app/events
+    environment:
+      - DATA_PATH=/app/data/sales_10_april_2026.csv
+      - EVENTS_OUTPUT=/app/events
+      - LOG_LEVEL=INFO
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  detection:
+    build:
+      context: .
+      dockerfile: Dockerfile.detection
+    volumes:
+      - ./data:/app/data
+      - ./events:/app/events
+    environment:
+      - VIDEO_SOURCE=/app/data
+      - EVENTS_OUTPUT=/app/events
+      - LOG_LEVEL=INFO
+    depends_on:
+      - api
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:8000
+
+volumes:
+  events:

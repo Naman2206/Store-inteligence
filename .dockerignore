@@ -1,0 +1,10 @@
+**/__pycache__
+**/.pytest_cache
+**/.git
+**/node_modules
+dashboard/node_modules
+events/*.jsonl
+*.pyc
+.env
+.cursor
+assets

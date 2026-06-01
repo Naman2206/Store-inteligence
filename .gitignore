@@ -1,0 +1,10 @@
+node_modules/
+dashboard/node_modules/
+dashboard/dist/
+data/*.mp4
+.env
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
