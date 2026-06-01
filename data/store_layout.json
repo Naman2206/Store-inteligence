@@ -1,0 +1,125 @@
+{
+  "stores": {
+    "STORE_BLR_002": {
+      "store_id": "STORE_BLR_002",
+      "store_name": "Brigade Road, Bangalore",
+      "city": "Bangalore",
+      "timezone": "Asia/Kolkata",
+      "open_hours": {
+        "monday_to_friday": "11:00-20:00",
+        "saturday": "10:00-21:00",
+        "sunday": "10:00-20:00"
+      },
+      "layout": {
+        "width_m": 10.5,
+        "depth_m": 4.5,
+        "zones": [
+          {
+            "zone_id": "ENTRY",
+            "zone_name": "Entry/Exit",
+            "category": "circulation",
+            "bounds": {
+              "x1_pct": 0,
+              "y1_pct": 0,
+              "x2_pct": 15,
+              "y2_pct": 100
+            },
+            "camera_coverage": ["CAM_ENTRY_01"],
+            "description": "Entry threshold and exit zone"
+          },
+          {
+            "zone_id": "SKINCARE",
+            "zone_name": "Skincare",
+            "category": "product",
+            "bounds": {
+              "x1_pct": 15,
+              "y1_pct": 0,
+              "x2_pct": 35,
+              "y2_pct": 50
+            },
+            "camera_coverage": ["CAM_FLOOR_01"],
+            "description": "Skincare and moisturizers section"
+          },
+          {
+            "zone_id": "MAKEUP",
+            "zone_name": "Makeup",
+            "category": "product",
+            "bounds": {
+              "x1_pct": 35,
+              "y1_pct": 0,
+              "x2_pct": 60,
+              "y2_pct": 50
+            },
+            "camera_coverage": ["CAM_FLOOR_01"],
+            "description": "Makeup and cosmetics section"
+          },
+          {
+            "zone_id": "FRAGRANCES",
+            "zone_name": "Fragrances",
+            "category": "product",
+            "bounds": {
+              "x1_pct": 60,
+              "y1_pct": 0,
+              "x2_pct": 85,
+              "y2_pct": 50
+            },
+            "camera_coverage": ["CAM_FLOOR_01"],
+            "description": "Fragrances and personal care"
+          },
+          {
+            "zone_id": "ACCESSORIES",
+            "zone_name": "Accessories",
+            "category": "product",
+            "bounds": {
+              "x1_pct": 85,
+              "y1_pct": 0,
+              "x2_pct": 100,
+              "y2_pct": 50
+            },
+            "camera_coverage": ["CAM_FLOOR_01"],
+            "description": "Accessories and gifts section"
+          },
+          {
+            "zone_id": "BILLING",
+            "zone_name": "Billing Counter",
+            "category": "checkout",
+            "bounds": {
+              "x1_pct": 15,
+              "y1_pct": 50,
+              "x2_pct": 85,
+              "y2_pct": 100
+            },
+            "camera_coverage": ["CAM_BILLING_01"],
+            "description": "Billing/checkout counter and queue area"
+          }
+        ]
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "camera_name": "Entry Camera",
+          "position": "west wall, entry point",
+          "coverage_zone": "ENTRY",
+          "fps": 15,
+          "resolution": "1080p"
+        },
+        {
+          "camera_id": "CAM_FLOOR_01",
+          "camera_name": "Floor Camera",
+          "position": "ceiling center, main floor",
+          "coverage_zone": ["SKINCARE", "MAKEUP", "FRAGRANCES", "ACCESSORIES"],
+          "fps": 15,
+          "resolution": "1080p"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "camera_name": "Billing Camera",
+          "position": "ceiling, billing area",
+          "coverage_zone": "BILLING",
+          "fps": 15,
+          "resolution": "1080p"
+        }
+      ]
+    }
+  }
+}

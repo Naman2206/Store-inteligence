@@ -7,7 +7,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routers import metrics, funnel, anomalies, events, health
+from api.routers import metrics, funnel, anomalies, events, health, ingestion, heatmap
+from api.routers import stores as stores_router
 from api.data_loader import DataLoader
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s — %(message)s")
@@ -43,3 +44,11 @@ app.include_router(metrics.router, prefix="/metrics", tags=["metrics"])
 app.include_router(funnel.router, prefix="/funnel", tags=["funnel"])
 app.include_router(anomalies.router, prefix="/anomalies", tags=["anomalies"])
 app.include_router(events.router, prefix="/events", tags=["events"])
+app.include_router(ingestion.router, prefix="/events/ingest", tags=["ingestion"])
+app.include_router(heatmap.router, prefix="/heatmap", tags=["heatmap"])
+app.include_router(stores_router.router, prefix="/stores", tags=["stores"])
+
+# Optional: Store-specific routing aliases for compatibility
+# GET /stores/{store_id}/metrics → /metrics?store_id={store_id}
+# GET /stores/{store_id}/heatmap → /heatmap?store_id={store_id}
+
