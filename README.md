@@ -16,6 +16,7 @@ docker compose up
 - **API**: http://localhost:8000
 - **Docs**: http://localhost:8000/docs
 - **Dashboard**: http://localhost:3000
+- **Live Dashboard**: https://naman2206.github.io/Store-inteligence/
 
 ---
 
