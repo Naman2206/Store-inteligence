@@ -1,4 +1,5 @@
 # Store Intelligence System
+<!-- GitHub update marker. -->
 ### Brigade Road, Bangalore · 10 April 2026
 **UpGrad Placements Challenge — End-to-End Store Analytics Pipeline**
 
